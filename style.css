@@ -30,10 +30,10 @@ html{
 section{
     padding: 100px 0;
 }
-.max-width{
-    max-width: 1300px;
-    padding: 0 80px;
-    margin: auto;
+.max-width {
+    max-width: 1200px; /* Adjust as needed */
+    margin: 0 auto;
+    padding: 0 15px;
 }
 .about, .services, .skills, .teams, .contact, footer{
     font-family: 'Poppins', sans-serif;
@@ -96,7 +96,7 @@ section .title::after{
     justify-content: space-between;
 }
 .navbar .logo a{
-    color: #fff;
+    color: #ffffff;
     font-size: 35px;
     font-weight: 600;
 }
@@ -113,14 +113,14 @@ section .title::after{
 }
 .navbar .menu li a{
     display: block;
-    color: #fff;
+    color: #ffffff;
     font-size: 18px;
     font-weight: 500;
     margin-left: 25px;
     transition: color 0.3s ease;
 }
 .navbar .menu li a:hover{
-    color: crimson;
+    color: black;
 }
 .navbar.sticky .menu li a:hover{
     color: #fff;
@@ -162,8 +162,8 @@ section .title::after{
 }
 
   
-/* home section styling */
-.home{
+/* Home section styling */
+.home {
     display: flex;
     background: url(banner.jpg) no-repeat center;
     height: 100vh;
@@ -172,27 +172,53 @@ section .title::after{
     background-size: cover;
     background-attachment: fixed;
     font-family: 'Ubuntu', sans-serif;
+    overflow: hidden; /* Prevents scrollbars if animations go outside bounds */
 }
-.home .max-width{
+
+.home .max-width {
     margin: auto 0 auto 30px;
 }
-.home .home-content .text-1{
-    font-size: 27px;
+
+.home .home-content {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s forwards;
 }
-.home .home-content .text-2{
+
+.home .home-content .text-1,
+.home .home-content .text-2,
+.home .home-content .text-3 {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
+}
+
+.home .home-content .text-1 {
+    font-size: 27px;
+    margin-left: 90px;
+    animation-delay: 0.3s;
+}
+
+.home .home-content .text-2 {
     font-size: 75px;
     font-weight: 600;
-    margin-left: -3px;
+    margin-left: 80px;
+    animation-delay: 0.5s;
 }
-.home .home-content .text-3{
+
+.home .home-content .text-3 {
     font-size: 40px;
     margin: 5px 0;
+    margin-left: 80px;
+    animation-delay: 0.7s;
 }
-.home .home-content .text-3 span{
+
+.home .home-content .text-3 span {
     color: gold;
     font-weight: 500;
 }
-.home .home-content a{
+
+.home .home-content a {
     display: inline-block;
     background: crimson;
     color: #fff;
@@ -203,11 +229,26 @@ section .title::after{
     border-radius: 6px;
     border: 2px solid crimson;
     transition: all 0.3s ease;
+    margin-left: 80px;
+    transform: translateY(10px);
+    opacity: 0;
+    animation: fadeInUp 1s forwards;
+    animation-delay: 0.9s;
 }
-.home .home-content a:hover{
+
+.home .home-content a:hover {
     color: crimson;
     background: none;
+    transform: translateY(0);
 }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 /* about section styling */
 .about .title::after{
